@@ -2,7 +2,7 @@ $(document).ready(function() {
   var draw = SVG('map').size(500, 500);
   var stars = draw.set();
   var i = 0;
-  while (i < 40) {
+  while (i < 50) {
     x = getRandomInt(10, 490);
     y = getRandomInt(10, 490);
 
@@ -15,31 +15,20 @@ $(document).ready(function() {
 });
 
 var notOverlapping = function(set, x, y) {
-  return set.each(function() {
-    return this.inside(x - 5, y - 5)
-        || this.inside(x + 5, y - 5)
-        || this.inside(x - 5, y + 5)
-        || this.inside(x + 5, y + 5)
-        || this.inside(x, y - 5)
-        || this.inside(x, y + 5)
-        || this.inside(x + 5, y)
-        || this.inside(x - 5, y)
-  })
+  var b
+  set.each(function() {
+    if      (this.inside(x - 5, y - 5)) { b = false; }
+    else if (this.inside(x + 5, y - 5)) { b = false; }
+    else if (this.inside(x - 5, y + 5)) { b = false; }
+    else if (this.inside(x + 5, y + 5)) { b = false; }
+    else if (this.inside(x, y - 5))     { b = false; }
+    else if (this.inside(x, y + 5))     { b = false; }
+    else if (this.inside(x + 5, y))     { b = false; }
+    else if (this.inside(x - 5, y))     { b = false; }
+  });
+  return b === undefined ? true : b;
 }
 
 var getRandomInt = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
-
-/**
-var star = draw.circle(40).attr({fill: "green"}).addClass("star");
-var star2 = draw.circle(50).attr(
-  {fill: "steelblue",
-   cx: 480,
-   cy: 480,
-   name: "Delta Pavonis"}).addClass("star");
-$(".star").hover(function() {
-  var name = $($(this).attr('name'));
-  map.append(name).slideToggle();
-});
-**/
