@@ -1,10 +1,12 @@
 /* Todo:
-* Seeds
-* Button that regens the map, similar to etch-a-pad
+* Black/near-black background
 * Star colors, set up in a const array and selected at generation
 ** This would have a separate function to randomize it
 * Grid, split into the same number of squares based on mapSize
-* Navbar for settings (put the button in here)
+* Seeds
+* Navbar for settings
+** Button that regens the map, similar to etch-a-pad
+** Something other than Bootstrap if there's a lighter alternative
 * Center the map somehow
 */
 
