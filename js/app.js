@@ -7,7 +7,7 @@ $(document).ready(function() {
     y = getRandomInt(10, 490);
 
     if (notOverlapping(stars, x, y)) {
-      var star = draw.circle(10).attr({cx: x, cy: y}).addClass('star');
+      var star = draw.circle(10).attr({cx: x, cy: y});
       stars.add(star);
       i++;
     }
@@ -16,15 +16,14 @@ $(document).ready(function() {
 
 var notOverlapping = function(set, x, y) {
   return set.each(function() {
-    if      (this.inside(x - 5, y - 5)) { return false; }
-    else if (this.inside(x + 5, y - 5)) { return false; }
-    else if (this.inside(x - 5, y + 5)) { return false; }
-    else if (this.inside(x + 5, y + 5)) { return false; }
-
-    else if (this.inside(x, y - 5)) { return false; }
-    else if (this.inside(x, y + 5)) { return false; }
-    else if (this.inside(x - 5, y)) { return false; }
-    else if (this.inside(x + 5, y)) { return false; }
+    return this.inside(x - 5, y - 5)
+        || this.inside(x + 5, y - 5)
+        || this.inside(x - 5, y + 5)
+        || this.inside(x + 5, y + 5)
+        || this.inside(x, y - 5)
+        || this.inside(x, y + 5)
+        || this.inside(x + 5, y)
+        || this.inside(x - 5, y)
   })
 }
 
