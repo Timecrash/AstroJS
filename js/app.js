@@ -1,13 +1,15 @@
 $(document).ready(function() {
   var draw = SVG('map').size(500, 500);
   var stars = draw.set();
-  for (i = 0; i < 40; i++) {
+  var i = 0;
+  while (i < 40) {
     x = getRandomInt(10, 490);
     y = getRandomInt(10, 490);
 
     if (notOverlapping(stars, x, y)) {
       var star = draw.circle(10).attr({cx: x, cy: y}).addClass('star');
       stars.add(star);
+      i++;
     }
   }
 });
@@ -18,6 +20,11 @@ var notOverlapping = function(set, x, y) {
     else if (this.inside(x + 5, y - 5)) { return false; }
     else if (this.inside(x - 5, y + 5)) { return false; }
     else if (this.inside(x + 5, y + 5)) { return false; }
+
+    else if (this.inside(x, y - 5)) { return false; }
+    else if (this.inside(x, y + 5)) { return false; }
+    else if (this.inside(x - 5, y)) { return false; }
+    else if (this.inside(x + 5, y)) { return false; }
   })
 }
 
