@@ -21,8 +21,8 @@ var generateStars = function(draw) {
   var stars = draw.set();
   var i = 0;
   while (i < density) {
-    x = getRandomInt(starDiam, mapSize - 10);
-    y = getRandomInt(starDiam, mapSize - 10);
+    x = getRandomInt(starDiam, mapSize - starDiam);
+    y = getRandomInt(starDiam, mapSize - starDiam);
 
     if (notOverlapping(stars, x, y)) {
       var star = draw.circle(starDiam).attr({cx: x, cy: y});
