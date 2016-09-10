@@ -1,15 +1,25 @@
 $(document).ready(function() {
   var draw = SVG('map').size(500, 500);
-  for (i = 0; i < 20; i++) {
+  var stars = draw.set();
+  for (i = 0; i < 40; i++) {
     x = getRandomInt(10, 490);
     y = getRandomInt(10, 490);
 
-    draw.circle(10).attr({cx: x, cy: y, name: "Delta Pavonis"}).addClass('star');
-    $('.star').hover(function() {
-      draw.text($(this).attr('name'));
-    })
+    if (notOverlapping(stars, x, y)) {
+      var star = draw.circle(10).attr({cx: x, cy: y}).addClass('star');
+      stars.add(star);
+    }
   }
 });
+
+var notOverlapping = function(set, x, y) {
+  return set.each(function() {
+    if      (this.inside(x - 5, y - 5)) { return false; }
+    else if (this.inside(x + 5, y - 5)) { return false; }
+    else if (this.inside(x - 5, y + 5)) { return false; }
+    else if (this.inside(x + 5, y + 5)) { return false; }
+  })
+}
 
 var getRandomInt = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
