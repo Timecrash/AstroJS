@@ -2,7 +2,7 @@
 
 A random starmap generator built in JavaScript. Generates a pre-set number of stars in a field, none too close to each other.
 
-Currently implements the following libraries, in addition :
+Currently implements the following nonstandard libraries:
 - jQuery 3.1.0
 - SVG.js 2.3.4
 
