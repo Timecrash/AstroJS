@@ -1,30 +1,36 @@
+var density = 30;
+var mapSize = 500;
+var starDiam = 10;
+
 $(document).ready(function() {
-  var draw = SVG('map').size(500, 500);
+  var draw = SVG('map').size(mapSize, mapSize);
   var stars = draw.set();
   var i = 0;
-  while (i < 30) {
-    x = getRandomInt(10, 490);
-    y = getRandomInt(10, 490);
+  while (i < density) {
+    x = getRandomInt(starDiam, mapSize - 10);
+    y = getRandomInt(starDiam, mapSize - 10);
 
     if (notOverlapping(stars, x, y)) {
-      var star = draw.circle(10).attr({cx: x, cy: y});
+      var star = draw.circle(starDiam).attr({cx: x, cy: y});
       stars.add(star);
       i++;
     }
   }
 });
 
+// This presets the overlapping
 var notOverlapping = function(set, x, y) {
+  var offset = starDiam - (starDiam / 4);
   var b
   set.each(function() {
-    if      (this.inside(x - 7, y - 7)) { b = false; }
-    else if (this.inside(x + 7, y - 7)) { b = false; }
-    else if (this.inside(x - 7, y + 7)) { b = false; }
-    else if (this.inside(x + 7, y + 7)) { b = false; }
-    else if (this.inside(x, y - 7))     { b = false; }
-    else if (this.inside(x, y + 7))     { b = false; }
-    else if (this.inside(x + 7, y))     { b = false; }
-    else if (this.inside(x - 7, y))     { b = false; }
+    if      (this.inside(x - offset, y - offset)) { b = false; }
+    else if (this.inside(x + offset, y - offset)) { b = false; }
+    else if (this.inside(x - offset, y + offset)) { b = false; }
+    else if (this.inside(x + offset, y + offset)) { b = false; }
+    else if (this.inside(x, y - offset))          { b = false; }
+    else if (this.inside(x, y + offset))          { b = false; }
+    else if (this.inside(x + offset, y))          { b = false; }
+    else if (this.inside(x - offset, y))          { b = false; }
   });
   return b === undefined ? true : b;
 }
