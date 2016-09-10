@@ -4,6 +4,10 @@ var starDiam = 10;
 
 $(document).ready(function() {
   var draw = SVG('map').size(mapSize, mapSize);
+  generateStars(draw);
+});
+
+var generateStars = function(draw) {
   var stars = draw.set();
   var i = 0;
   while (i < density) {
@@ -16,7 +20,7 @@ $(document).ready(function() {
       i++;
     }
   }
-});
+};
 
 var notOverlapping = function(set, x, y) {
   var offset = starDiam - (starDiam / 4); // This gives each star a bit of space
