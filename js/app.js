@@ -1,4 +1,4 @@
-var density = 30;
+var density = 50;
 var mapSize = 500;
 var starDiam = 10;
 
@@ -18,19 +18,18 @@ $(document).ready(function() {
   }
 });
 
-// This presets the overlapping
 var notOverlapping = function(set, x, y) {
-  var offset = starDiam - (starDiam / 4);
+  var offset = starDiam - (starDiam / 4); // This gives each star a bit of space
   var b
   set.each(function() {
-    if      (this.inside(x - offset, y - offset)) { b = false; }
-    else if (this.inside(x + offset, y - offset)) { b = false; }
-    else if (this.inside(x - offset, y + offset)) { b = false; }
-    else if (this.inside(x + offset, y + offset)) { b = false; }
-    else if (this.inside(x, y - offset))          { b = false; }
-    else if (this.inside(x, y + offset))          { b = false; }
-    else if (this.inside(x + offset, y))          { b = false; }
-    else if (this.inside(x - offset, y))          { b = false; }
+    if (this.inside(x - offset, y - offset)
+     || this.inside(x + offset, y - offset)
+     || this.inside(x - offset, y + offset)
+     || this.inside(x + offset, y + offset)
+     || this.inside(x, y - offset)
+     || this.inside(x, y + offset)
+     || this.inside(x + offset, y)
+     || this.inside(x - offset, y)) { b = false; }
   });
   return b === undefined ? true : b;
 }
