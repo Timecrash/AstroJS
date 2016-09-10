@@ -1,4 +1,14 @@
-var density = 50;
+/* Todo:
+* Seeds
+* Button that regens the map, similar to etch-a-pad
+* Star colors, set up in a const array and selected at generation
+** This would have a separate function to randomize it
+* Grid, split into the same number of squares based on mapSize
+* Navbar for settings (put the button in here)
+* Center the map somehow
+*/
+
+var density = 40;
 var mapSize = 500;
 var starDiam = 10;
 
