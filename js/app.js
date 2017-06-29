@@ -10,8 +10,8 @@
 * Center the map somehow
 */
 
-var density = 40;
-var mapSize = 500;
+var density  = 40;
+var mapSize  = 500;
 var starDiam = 10;
 
 $(document).ready(function() {
