@@ -23,7 +23,7 @@ Will eventually have the following features (in no order):
   - Randomly decided on generation or input/changed by user.
 - Seeds (since most decent generators implement them)
 - Travel lines between stars
-  - For a set legend (1 pixel = x light years ), draw lines between stars within a certain number of LY (15 LY)
+  - For a set legend (1 pixel = x light years), draw lines between stars within a certain number of LY (15 LY)
 - Constellations (Separately colored lines than the travel lines)
   - Close stars will be connected like this.
   - Possibly also connect similar names (Eridani, Draconi, etc.) but I have no idea how to do this.
