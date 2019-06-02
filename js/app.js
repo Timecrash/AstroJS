@@ -11,7 +11,7 @@
 */
 
 var density  = 40;
-var mapSize  = 500;
+var mapSize  = 700;
 var starDiam = 10;
 
 $(document).ready(function() {
