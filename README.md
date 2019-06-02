@@ -3,10 +3,12 @@
 A random starmap generator built in JavaScript. Generates a pre-set number of stars in a field, none too close to each other.
 
 Currently implements the following nonstandard libraries:
+
 - jQuery 3.1.0
 - SVG.js 2.3.4
 
 Will eventually have the following features (in no order):
+
 - A navbar for custom settings.
   - Star density, map size, star diameters, star names, star colors.
   - After setting everything to what you want, the map will recreate.
