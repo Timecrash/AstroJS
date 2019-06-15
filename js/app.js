@@ -14,11 +14,6 @@ var density  = 40;
 var mapSize  = 700;
 var starDiam = 10;
 
-$(document).ready(function() {
-  var draw = SVG('map').size(mapSize, mapSize);
-  generateStars(draw);
-});
-
 var generateStars = function(draw) {
   var stars = draw.set();
   var i = 0;
@@ -53,3 +48,8 @@ var notOverlapping = function(set, x, y) {
 var getRandomInt = function(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+$(document).ready(function() {
+  var draw = SVG('map').size(mapSize, mapSize);
+  generateStars(draw);
+});
