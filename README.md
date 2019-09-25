@@ -1,11 +1,26 @@
 # AstroJS
 
+## Description
+
 A random starmap generator built in JavaScript. Generates a pre-set number of stars in a field, none too close to each other.
 
 Currently implements the following nonstandard libraries:
 
 - jQuery 3.1.0
 - SVG.js 2.3.4
+
+## Usage
+
+To start the server:
+
+```bash
+$ rackup
+Thin web server (v1.7.2 codename Bachmanity)
+Maximum connections set to 1024
+Listening on localhost:9292, CTRL+C to stop
+```
+
+## Future
 
 Will eventually have the following features (in no order):
 
@@ -37,5 +52,6 @@ Will eventually have the following features (in no order):
 - User accounts, accessible via the navbar.
   - This will only save and load starmaps for that user.
   - If this thing really takes off, it'll also allow viewing of other users' saved maps.
+  - Obviously this'll require a database, so the app might have to switch to Rails.
 - AJAX searching, stars will glow or something as you type.
 - Zoom in/out functionality.

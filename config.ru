@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'bundler'
 
-Bundler.require 
+Bundler.require
 
 require_relative './astrojs'
 run Sinatra::Application

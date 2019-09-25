@@ -7,7 +7,6 @@
 * Navbar for settings
 ** Button that regens the map, similar to etch-a-pad
 ** Something other than Bootstrap if there's a lighter alternative
-* Center the map somehow
 */
 
 var density  = 40;
@@ -16,7 +15,8 @@ var starDiam = 10;
 
 var generateStars = function(draw) {
   var stars = draw.set();
-  var i = 0;
+  var i     = 0;
+
   while (i < density) {
     x = getRandomInt(starDiam, mapSize - starDiam);
     y = getRandomInt(starDiam, mapSize - starDiam);
